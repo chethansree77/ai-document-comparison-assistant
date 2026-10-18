@@ -14,6 +14,18 @@ An AI-powered web application that compares two PDF documents and generates a st
 - Handle missing uploads and PDFs without readable text.
 - Reset the comparison and upload new documents.
 
+## Screenshots
+
+### 1. Application Interface
+![AI Document Comparison Assistant Interface](screenshots/01-app-interface.png)
+
+### 2. AI Comparison Results
+![AI-powered PDF comparison results](screenshots/02-comparison-results.png)
+
+### 3. Word Report Download
+![Download the Word comparison report](screenshots/03-word-report-download.png)
+
+
 ## Technologies Used
 
 - Python

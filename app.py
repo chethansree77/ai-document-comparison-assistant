@@ -29,39 +29,37 @@ st.set_page_config(
 
 st.markdown(
     """
-    <style>
-    /* Reduce the empty space at the top */
-.block-container {
-    padding-top: 1rem !important;
-}
+   
 
-/* Keep the title banner closer to the top */
-h1 {
-    margin-top: 0 !important;
-}
+
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
+    /* Global font */
     html, body, [class*="css"] {
         font-family: Poppins, sans-serif;
     }
 
-
+    /* App background */
     .stApp {
         background: linear-gradient(135deg, #f7f8ff, #edf5ff);
     }
 
+    /* Main page spacing */
     .block-container {
         max-width: 1400px;
-        padding-top: 2rem;
-        padding-bottom: 3rem;
+        padding-top: 0.5rem !important;
+        padding-bottom: 3rem !important;
     }
 
+    /* Blue title banner */
     .hero {
         padding: 30px;
         border-radius: 24px;
         color: white;
         background: linear-gradient(120deg, #4338ca, #6366f1, #0ea5e9);
         box-shadow: 0 12px 30px #4338ca25;
+        margin-top: 25px !important;
         margin-bottom: 25px;
     }
 
@@ -69,6 +67,7 @@ h1 {
         color: white;
         font-size: 2.1rem;
         font-weight: 800;
+        margin-top: 0;
     }
 
     .hero p {
@@ -76,6 +75,7 @@ h1 {
         margin-bottom: 0;
     }
 
+    /* Section headings */
     .section-heading {
         color: #252b60;
         font-weight: 800;
@@ -84,7 +84,12 @@ h1 {
         margin-bottom: 12px;
     }
 
-    .upload-card, .summary-card, .difference-card, .plain-card, .metric-card {
+    /* Cards */
+    .upload-card,
+    .summary-card,
+    .difference-card,
+    .plain-card,
+    .metric-card {
         background: white;
         border: 1px solid #e0e7ff;
         border-radius: 18px;
@@ -94,13 +99,26 @@ h1 {
         overflow-wrap: anywhere;
     }
 
-    .upload-card { min-height: 100px; }
+    .upload-card {
+        min-height: 100px;
+    }
 
-    .doc-a { color: #4338ca; }
-    .doc-b { color: #047857; }
+    .doc-a {
+        color: #4338ca;
+    }
 
-    .summary-card { border-top: 5px solid #6366f1; }
-    .summary-b { border-top-color: #10b981; }
+    .doc-b {
+        color: #047857;
+    }
+
+    /* Summary cards */
+    .summary-card {
+        border-top: 5px solid #6366f1;
+    }
+
+    .summary-b {
+        border-top-color: #10b981;
+    }
 
     .summary-card h3 {
         font-size: 1.05rem;
@@ -128,16 +146,17 @@ h1 {
         border-radius: 9px;
         background: #e0e7ff;
         color: #4338ca;
-        font-size: .8rem;
+        font-size: 0.8rem;
         font-weight: 800;
     }
 
     .summary-point-text {
         color: #334155;
-        font-size: .91rem;
+        font-size: 0.91rem;
         line-height: 1.65;
     }
 
+    /* Difference sections */
     .difference-title {
         color: #312e81;
         font-weight: 800;
@@ -151,13 +170,34 @@ h1 {
         line-height: 1.65;
     }
 
-    .difference-a { background: #eef2ff; color: #3730a3; }
-    .difference-b { background: #ecfdf5; color: #065f46; }
-    .difference-change { background: #fff7ed; color: #9a3412; }
+    .difference-a {
+        background: #eef2ff;
+        color: #3730a3;
+    }
 
-    .metric-label { color: #64748b; font-size: .85rem; }
-    .metric-value { color: #3730a3; font-size: 1.6rem; font-weight: 800; }
+    .difference-b {
+        background: #ecfdf5;
+        color: #065f46;
+    }
 
+    .difference-change {
+        background: #fff7ed;
+        color: #9a3412;
+    }
+
+    /* Metric cards */
+    .metric-label {
+        color: #64748b;
+        font-size: 0.85rem;
+    }
+
+    .metric-value {
+        color: #3730a3;
+        font-size: 1.6rem;
+        font-weight: 800;
+    }
+
+    /* Compare button */
     div.stButton > button {
         border: 0;
         border-radius: 12px;
@@ -171,21 +211,9 @@ h1 {
         color: white;
         box-shadow: 0 8px 20px #4f46e540;
     }
+</style>
 
-/* Reduce Streamlit's top spacing */
-.stMainBlockContainer {
-    padding-top: 0.5rem !important;
-}
 
-/* Remove extra top margin from the title banner */
-.stMainBlockContainer h1 {
-    margin-top: 0 !important;
-}
-
-.title-banner {
-    margin-top: 25px !important;
-}
-    </style>
     """,
     unsafe_allow_html=True,
 )

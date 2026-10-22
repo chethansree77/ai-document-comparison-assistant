@@ -1,7 +1,23 @@
 
+
+# Environment variables and secrets
 .env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Python virtual environment
 venv/
+.venv/
+
+# Python cache files
 __pycache__/
 *.py[cod]
 
+# Generated test reports
 test_comparison_report.docx
+
+# Generated test files
+.pytest_cache/
+.coverage
+app_backup.py

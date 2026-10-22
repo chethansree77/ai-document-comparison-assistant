@@ -5,78 +5,79 @@ from google import genai
 
 load_dotenv()
 
-API_KEY = os.getenv("GEMINI_API_KEY")
 
-if not API_KEY:
-    raise ValueError(
-        "GEMINI_API_KEY is missing. Check your .env file."
-    )
+def compare_documents(text_a, text_b):
+    """Compare two documents using Gemini and return a report as text."""
 
-client = genai.Client(api_key=API_KEY)
+    api_key = os.getenv("GEMINI_API_KEY")
 
-
-def compare_documents(document_a_text, document_b_text):
-    """Compare two documents and return Gemini's analysis."""
-
-    prompt = f"""
-You are an AI document comparison assistant.
-
-Compare the following two documents carefully.
-
-DOCUMENT A:
-{document_a_text}
-
-DOCUMENT B:
-{document_b_text}
-
-Return your analysis using these sections:
-
-1. SUMMARY OF DOCUMENT A
-Summarize its main points.
-
-2. SUMMARY OF DOCUMENT B
-Summarize its main points.
-
-3. SIMILARITIES
-List the information shared by both documents.
-
-4. DIFFERENCES
-Explain the changes between the documents.
-Include the old and new values where applicable.
-
-5. KEY FACTS
-Compare dates, numbers, deadlines, eligibility rules,
-requirements, and other important details.
-
-6. NEW OR REMOVED REQUIREMENTS
-Identify requirements appearing in only one document.
-
-7. OVERALL CONCLUSION
-Briefly explain the most important changes.
-
-Rules:
-- Use only information provided in the documents.
-- Do not invent facts.
-- Clearly identify which document each fact comes from.
-- If information is missing, say it is not specified.
-"""
-
-    try:
-        response = client.interactions.create(
-            model="gemini-3.5-flash-lite",
-            input=prompt
+    if not api_key:
+        raise ValueError(
+            "GEMINI_API_KEY is missing. Check your .env file."
         )
 
-        result = getattr(response, "output_text", None)
+    if not text_a or not text_a.strip():
+        raise ValueError("Document A contains no extractable text.")
 
-        if not result:
-            raise ValueError(
-                "Gemini returned an empty comparison."
-            )
+    if not text_b or not text_b.strip():
+        raise ValueError("Document B contains no extractable text.")
 
-        return result
+    client = genai.Client(api_key=api_key)
+
+    prompt = f"""
+You are an AI Document Comparison Assistant.
+
+Compare the two documents accurately. Be concise, structured,
+and specific. Do not invent facts.
+
+DOCUMENT A:
+{text_a}
+
+DOCUMENT B:
+{text_b}
+
+Return these exact section headings, using Markdown:
+
+## 1. Summary of Document A
+## 2. Summary of Document B
+## 3. Key Similarities
+## 4. Key Differences
+## 5. New or Changed Requirements
+## 6. Important Dates and Facts
+## 7. Overall Conclusion
+
+Use concise bullet points. For differences, clearly state the
+value or rule in Document A and the corresponding value or rule
+in Document B. Mark items as changed, new, removed, or unchanged
+where the documents support that conclusion.
+"""
+
+    # Start with one lightweight model to avoid sequential fallbacks.
+    model_name = "gemini-flash-lite-latest"
+
+    try:
+        response = client.models.generate_content(
+            model=model_name,
+            contents=prompt,
+            config={
+                "temperature": 0.2,
+                "max_output_tokens": 3000,
+            },
+        )
+
+        result = getattr(response, "text", None)
+
+        if result and result.strip():
+            return result.strip()
+
+        raise RuntimeError(
+            f"{model_name} returned an empty response. Please try again."
+        )
 
     except Exception as error:
         raise RuntimeError(
-            f"Document comparison failed: {error}"
+            "Gemini could not complete the comparison. "
+            "Check your internet connection, API quota, and model availability, "
+            "then try again. Details: "
+            f"{error}"
         ) from error

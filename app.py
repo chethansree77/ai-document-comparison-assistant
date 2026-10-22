@@ -30,6 +30,15 @@ st.set_page_config(
 st.markdown(
     """
     <style>
+    /* Reduce the empty space at the top */
+.block-container {
+    padding-top: 1rem !important;
+}
+
+/* Keep the title banner closer to the top */
+h1 {
+    margin-top: 0 !important;
+}
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
     html, body, [class*="css"] {

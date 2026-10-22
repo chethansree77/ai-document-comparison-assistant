@@ -45,6 +45,7 @@ h1 {
         font-family: Poppins, sans-serif;
     }
 
+
     .stApp {
         background: linear-gradient(135deg, #f7f8ff, #edf5ff);
     }
@@ -179,6 +180,10 @@ h1 {
 /* Remove extra top margin from the title banner */
 .stMainBlockContainer h1 {
     margin-top: 0 !important;
+}
+
+.title-banner {
+    margin-top: 25px !important;
 }
     </style>
     """,

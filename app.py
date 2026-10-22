@@ -171,6 +171,15 @@ h1 {
         box-shadow: 0 8px 20px #4f46e540;
     }
 
+/* Reduce Streamlit's top spacing */
+.stMainBlockContainer {
+    padding-top: 0.5rem !important;
+}
+
+/* Remove extra top margin from the title banner */
+.stMainBlockContainer h1 {
+    margin-top: 0 !important;
+}
     </style>
     """,
     unsafe_allow_html=True,

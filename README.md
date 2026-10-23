@@ -23,20 +23,19 @@ An AI-powered web application that compares two PDF documents, summarizes their 
 - 🔄 Reset the comparison and upload new documents.
 - ⚠️ Handle missing uploads and PDFs without readable text.
 - 🎨 Responsive interface with gradient styling and hover effects.
-
 ## 🖥️ Screenshots
 
 ### 1. Application Interface
 
-![AI Document Comparison Assistant Interface](https://raw.githubusercontent.com/chethansree77/ai-document-comparison-assistant/main/screenshots/app_interface.png)
+![AI Document Comparison Assistant Interface](screenshots/01-app-interface.png)
 
 ### 2. AI Comparison Results
 
-![AI-powered PDF comparison results](https://raw.githubusercontent.com/chethansree77/ai-document-comparison-assistant/main/screenshots/comparison_results.png)
+![AI-powered PDF comparison results](screenshots/02-comparison-results.png)
 
 ### 3. Word Report Download
 
-![Word comparison report download](https://raw.githubusercontent.com/chethansree77/ai-document-comparison-assistant/main/screenshots/word_report.png)
+![Word comparison report download](screenshots/03-word-report-download.png)
 
 ---
 

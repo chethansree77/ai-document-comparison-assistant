@@ -49,7 +49,7 @@ st.markdown(
     /* Main page spacing */
 [data-testid="stMainBlockContainer"] {
     max-width: 1400px;
-    padding-top: 3rem !important;
+    padding-top: 6rem !important;
     padding-bottom: 3rem !important;
 }
 

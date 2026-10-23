@@ -53,28 +53,28 @@ st.markdown(
     }
 
     /* Blue title banner */
-    .hero {
-        padding: 30px;
-        border-radius: 24px;
-        color: white;
-        background: linear-gradient(120deg, #4338ca, #6366f1, #0ea5e9);
-        box-shadow: 0 12px 30px #4338ca25;
-        margin-top: 25px !important;
-        margin-bottom: 25px;
-    }
+   /* Blue title banner */
+.hero {
+    padding: 30px;
+    border-radius: 24px;
+    color: white;
+    background: linear-gradient(120deg, #4338ca, #6366f1, #0ea5e9);
+    box-shadow: 0 12px 30px #4338ca25;
+    margin-top: 0 !important;
+    margin-bottom: 25px;
+}
 
-    .hero h1 {
-        color: white;
-        font-size: 2.1rem;
-        font-weight: 800;
-        margin-top: 0;
-    }
+.hero h1 {
+    color: white;
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin-top: 0;
+}
 
-    .hero p {
-        color: #eef2ff;
-        margin-bottom: 0;
-    }
-
+.hero p {
+    color: #eef2ff;
+    margin-bottom: 0;
+}
     /* Section headings */
     .section-heading {
         color: #252b60;

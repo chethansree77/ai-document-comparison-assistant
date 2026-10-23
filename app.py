@@ -29,7 +29,7 @@ st.set_page_config(
 
 st.markdown(
     """
-   
+
 
 
 <style>
@@ -63,6 +63,7 @@ st.markdown(
     box-shadow: 0 12px 30px #4338ca25;
     margin-top: 0 !important;
     margin-bottom: 25px;
+    animation: heroFadeIn 0.7s ease-out;
 }
 
 .hero h1 {
@@ -77,13 +78,19 @@ st.markdown(
     margin-bottom: 0;
 }
     /* Section headings */
-    .section-heading {
-        color: #252b60;
-        font-weight: 800;
-        font-size: 1.35rem;
-        margin-top: 22px;
-        margin-bottom: 12px;
-    }
+/* Modern section headings */
+.section-heading {
+    color: #252b60;
+    font-weight: 800;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    letter-spacing: -0.4px;
+    margin-top: 28px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e7ff;
+}
+
 
     /* Cards */
     .upload-card,
@@ -99,10 +106,61 @@ st.markdown(
         margin-bottom: 14px;
         overflow-wrap: anywhere;
     }
+.upload-card {
+    min-height: 100px;
+}
 
-    .upload-card {
-        min-height: 100px;
-    }
+/* Smooth, modern card hover effect */
+.upload-card,
+.summary-card,
+.difference-card,
+.plain-card,
+.metric-card {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.upload-card:hover,
+.summary-card:hover,
+.difference-card:hover,
+.plain-card:hover,
+.metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(67, 56, 202, 0.12);
+    border-color: #a5b4fc;
+}
+
+/* Green hover effect for Document B summary */
+
+/* Green summary card hover — matching the blue card's effect */
+.summary-b:hover {
+    background: #ecfdf5;
+    border-top-color: #10b981;
+    border-left-color: #10b981;
+    border-right-color: #10b981;
+    border-bottom-color: #10b981;
+    box-shadow: 0 12px 28px rgba(16, 185, 129, 0.18);
+}
+
+
+/* Blue summary card hover */
+.summary-card:not(.summary-b):hover {
+    background: #eef2ff;
+    border-color: #6366f1;
+    box-shadow: 0 12px 28px rgba(99, 102, 241, 0.18);
+}
+
+/* Green summary card hover */
+.summary-card.summary-b:hover {
+    background: #ecfdf5;
+    border-color: #10b981;
+    box-shadow: 0 12px 28px rgba(16, 185, 129, 0.18);
+}
+
+
 
     .doc-a {
         color: #4338ca;
@@ -150,27 +208,43 @@ st.markdown(
         font-size: 0.8rem;
         font-weight: 800;
     }
-
-    .summary-point-text {
-        color: #334155;
-        font-size: 0.91rem;
-        line-height: 1.65;
-    }
-
+.summary-point-text {
+    color: #334155;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    letter-spacing: 0.1px;
+    overflow-wrap: anywhere;
+}
     /* Difference sections */
-    .difference-title {
-        color: #312e81;
-        font-weight: 800;
-        margin-bottom: 12px;
-    }
+/* Comparison result headings */
+.difference-title {
+    color: #312e81;
+    font-weight: 800;
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #eef2ff, #f5f3ff);
+    border-left: 4px solid #6366f1;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+.difference-title:hover {
+    background: #e0e7ff;
+    border-left-color: #4338ca;
+}
 
-    .difference-row {
-        padding: 11px 13px;
-        border-radius: 10px;
-        margin-bottom: 9px;
-        line-height: 1.65;
-    }
 
+.difference-row {
+    padding: 11px 13px;
+    border-radius: 10px;
+    margin-bottom: 9px;
+    line-height: 1.65;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.difference-row:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(49, 46, 129, 0.10);
+}
     .difference-a {
         background: #eef2ff;
         color: #3730a3;
@@ -187,31 +261,164 @@ st.markdown(
     }
 
     /* Metric cards */
-    .metric-label {
-        color: #64748b;
-        font-size: 0.85rem;
-    }
 
-    .metric-value {
-        color: #3730a3;
-        font-size: 1.6rem;
-        font-weight: 800;
-    }
+/* Metric card labels */
+.metric-label {
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Metric card values */
+.metric-value {
+    color: #3730a3;
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.3;
+    transition: color 0.2s ease;
+}
+
+/* Metric card hover */
+.metric-card:hover .metric-value {
+    color: #0284c7;
+}
+
 
     /* Compare button */
-    div.stButton > button {
-        border: 0;
-        border-radius: 12px;
-        min-height: 46px;
-        color: white;
-        font-weight: 700;
-        background: linear-gradient(110deg, #4f46e5, #0284c7);
-    }
+
+
+/* Modern Compare button */
+div.stButton > button {
+    border: none;
+    border-radius: 14px;
+    min-height: 50px;
+    padding: 0.65rem 1.5rem;
+    color: white;
+    font-weight: 700;
+    background: linear-gradient(110deg, #4f46e5, #0284c7);
+    box-shadow: 0 5px 14px rgba(79, 70, 229, 0.2);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+div.stButton > button:hover {
+    color: white;
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 10px 24px rgba(79, 70, 229, 0.32);
+    filter: brightness(1.08);
+}
+
+div.stButton > button:active {
+    transform: translateY(0) scale(0.99);
+    box-shadow: 0 3px 8px rgba(79, 70, 229, 0.2);
+}
+
+div.stButton > button:active {
+    transform: translateY(0);
+}
+
 
     div.stButton > button:hover {
         color: white;
         box-shadow: 0 8px 20px #4f46e540;
     }
+
+
+/* Modern PDF upload area */
+[data-testid="stFileUploader"] {
+    background: linear-gradient(135deg, #ffffff, #f5f7ff);
+    border: 1px solid #dbe4ff;
+    border-radius: 16px;
+    padding: 14px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+[data-testid="stFileUploader"]:hover {
+    border-color: #818cf8;
+    box-shadow: 0 6px 18px rgba(79, 70, 229, 0.10);
+}
+
+/* Keep uploaded file information readable */
+[data-testid="stFileUploader"] section {
+    border-radius: 12px;
+}
+
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    [data-testid="stMainBlockContainer"] {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-top: 3rem !important;
+    }
+
+    .hero {
+        padding: 22px;
+        border-radius: 18px;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+        line-height: 1.35;
+    }
+
+    .section-heading {
+        font-size: 1.2rem;
+    }
+
+    .upload-card,
+    .summary-card,
+    .difference-card,
+    .plain-card,
+    .metric-card {
+        padding: 15px;
+    }
+}
+
+
+/* Accessible keyboard focus for buttons */
+div.stButton > button:focus-visible {
+    outline: 3px solid #0ea5e9;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px rgba(14, 165, 233, 0.15);
+}
+
+/* Accessible keyboard focus for file uploaders */
+[data-testid="stFileUploader"] button:focus-visible {
+    outline: 3px solid #10b981;
+    outline-offset: 3px;
+}
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .hero {
+        animation: none !important;
+    }
+
+    .upload-card,
+    .summary-card,
+    .difference-card,
+    .plain-card,
+    .metric-card,
+    .difference-row,
+    div.stButton > button {
+        transition: none !important;
+    }
+}
+
 </style>
 
 

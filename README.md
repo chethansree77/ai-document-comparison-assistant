@@ -6,7 +6,7 @@ An AI-powered web application that compares two PDF documents, summarizes their 
 
 **Try the application:** [AI Document Comparison Assistant](https://ai-document-comparison-assistant-ddrd7wfomkkjdwb47ulvfm.streamlit.app/)
 
-**Source Code:** [GitHub Repository](https://github.com/chethansree77/ai-document-comparison-assistant)
+**Source code:** [GitHub Repository](https://github.com/chethansree77/ai-document-comparison-assistant)
 
 ---
 
@@ -18,27 +18,25 @@ An AI-powered web application that compares two PDF documents, summarizes their 
 - 🔍 Identify similarities between documents.
 - ⚖️ Highlight differences and changes.
 - 📌 Extract important facts, dates, requirements, and key information.
-- 📊 Display comparison results in an organized, user-friendly interface.
+- 📊 Display comparison results in an organized interface.
 - 📥 Download a formatted Word comparison report.
 - 🔄 Reset the comparison and upload new documents.
 - ⚠️ Handle missing uploads and PDFs without readable text.
-- 🎨 Enjoy a modern interface with gradient styling, responsive layouts, and interactive hover effects.
+- 🎨 Responsive interface with gradient styling and hover effects.
 
 ## 🖥️ Screenshots
 
 ### 1. Application Interface
 
-![AI Document Comparison Assistant Interface](screenshots/app_interface.png)
+![AI Document Comparison Assistant Interface](https://raw.githubusercontent.com/chethansree77/ai-document-comparison-assistant/main/screenshots/app_interface.png)
 
 ### 2. AI Comparison Results
 
-![AI-powered PDF comparison results](screenshots/comparison_results.png)
+![AI-powered PDF comparison results](https://raw.githubusercontent.com/chethansree77/ai-document-comparison-assistant/main/screenshots/comparison_results.png)
 
 ### 3. Word Report Download
 
-![Word comparison report download](screenshots/word_report.png)
-
-> Note: If your screenshot filenames differ from those above, update the image paths to match the actual files in the `screenshots` folder.
+![Word comparison report download](https://raw.githubusercontent.com/chethansree77/ai-document-comparison-assistant/main/screenshots/word_report.png)
 
 ---
 
@@ -48,29 +46,25 @@ An AI-powered web application that compares two PDF documents, summarizes their 
 |---|---|
 | Python | Application logic and processing |
 | Streamlit | Interactive web interface |
-| Google Gemini API | AI summaries and document comparison |
+| Google Gemini API | AI summaries and comparison |
 | google-genai | Gemini API integration |
 | PyPDF | PDF text extraction |
 | python-docx | Word report generation |
-| python-dotenv | Local environment variable management |
+| python-dotenv | Environment variable management |
 | HTML and CSS | Custom interface styling |
 
 ## 📁 Project Structure
 
 ```text
 ai-document-comparison-assistant/
-│
 ├── app.py
 ├── comparison.py
 ├── document_reader.py
 ├── report_generator.py
-├── create_sample_pdfs.py
-├── list_models.py
 ├── requirements.txt
 ├── .env.example
 ├── .gitignore
 ├── README.md
-│
 ├── sample_documents/
 ├── screenshots/
 └── tests/
@@ -80,10 +74,10 @@ ai-document-comparison-assistant/
 
 ### Prerequisites
 
-- Python installed on your computer.
-- Git installed on your computer.
-- A Google Gemini API key.
-- Visual Studio Code or another code editor.
+- Python
+- Git
+- A Google Gemini API key
+- Visual Studio Code or another code editor
 
 ### Step 1: Clone the repository
 
@@ -111,8 +105,6 @@ python -m venv venv
 .\venv\Scripts\Activate.ps1
 ```
 
-If PowerShell blocks activation, you can run the Python commands below using the virtual environment's Python executable directly.
-
 ### Step 5: Install dependencies
 
 ```bash
@@ -121,15 +113,15 @@ python -m pip install -r requirements.txt
 
 ### Step 6: Configure your Gemini API key
 
-Create a `.env` file in the project root directory and add:
+Create a `.env` file in the project root and add:
 
 ```text
 GEMINI_API_KEY=your_actual_api_key
 ```
 
-Replace `your_actual_api_key` with your own Gemini API key.
+Replace the placeholder with your own API key.
 
-**Important:** Never commit your real `.env` file or publish your API key on GitHub. The repository provides `.env.example` as a placeholder template.
+**Security:** Never commit your real `.env` file or publish your API key. Keep `.env` excluded through `.gitignore`. For Streamlit Community Cloud, configure the key in the app's secrets settings.
 
 ### Step 7: Run the application
 
@@ -137,9 +129,7 @@ Replace `your_actual_api_key` with your own Gemini API key.
 python -m streamlit run app.py
 ```
 
-Open the local URL displayed in your terminal, usually:
-
-`http://localhost:8501`
+Open the local URL shown in the terminal, usually http://localhost:8501.
 
 ---
 
@@ -149,22 +139,20 @@ Open the local URL displayed in your terminal, usually:
 2. Upload the first PDF as **Document A**.
 3. Upload the second PDF as **Document B**.
 4. Click **Compare Documents**.
-5. Review the summaries of both documents.
-6. Explore the similarities, differences, and important facts.
-7. Download the generated Word comparison report.
-8. Use **Reset Comparison** to start a new comparison.
+5. Review both document summaries.
+6. Explore similarities, differences, and important facts.
+7. Download the Word comparison report.
+8. Reset the application to compare another pair of documents.
 
 ## 🧪 Testing
 
-The repository includes a `tests/` directory for project tests.
-
-To run tests, activate your virtual environment and execute:
+If the project includes tests, activate the virtual environment and run:
 
 ```bash
 python -m pytest
 ```
 
-If pytest is not installed, install it using:
+If pytest is not installed:
 
 ```bash
 python -m pip install pytest
@@ -172,12 +160,12 @@ python -m pip install pytest
 
 ## 🔐 Security
 
-- Store your Gemini API key in a local `.env` file.
-- Keep `.env` excluded from Git using `.gitignore`.
+- Store API credentials in `.env` locally.
+- Keep `.env` excluded from Git.
 - Never hardcode or publish API keys.
-- Use `.env.example` to document required environment variables without including secrets.
-- Configure deployment secrets through Streamlit Community Cloud's secrets settings.
-- Avoid uploading confidential documents unless you are authorized to process them.
+- Use `.env.example` for placeholder configuration.
+- Configure deployment secrets securely.
+- Do not upload confidential documents unless authorized.
 
 ## 🌐 Deployment
 
@@ -185,13 +173,11 @@ The application is deployed using Streamlit Community Cloud.
 
 **Live application:** [Open the deployed app](https://ai-document-comparison-assistant-ddrd7wfomkkjdwb47ulvfm.streamlit.app/)
 
-The deployed application requires the appropriate Gemini API key to be configured securely in the Streamlit app's secrets.
+The deployed app requires the Gemini API key to be configured in its Streamlit secrets.
 
 ## 🎯 Project Objective
 
-The objective of this project is to demonstrate practical skills in Python development, Generative AI integration, PDF processing, document analysis, report generation, and interactive web application development.
-
-This project demonstrates how an AI-powered application can help users understand and compare information across two documents more efficiently.
+This project demonstrates practical skills in Python development, Generative AI integration, PDF processing, document analysis, report generation, and interactive web application development.
 
 ## 👩‍💻 Author
 

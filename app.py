@@ -544,7 +544,7 @@ for key, value in defaults.items():
 st.markdown(
     """
     <div class="hero">
-        <h1>📑 AI Document Comparison Assistant</h1>
+        <h1>📑 AI Document Comparison Assistant — TEST 278a763</h1>
         <p>
             Compare two PDFs to identify similarities, differences,
             changed requirements, important dates and facts.

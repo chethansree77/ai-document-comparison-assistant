@@ -46,11 +46,12 @@ st.markdown(
     }
 
     /* Main page spacing */
-    .block-container {
-        max-width: 1400px;
-        padding-top: 0.5rem !important;
-        padding-bottom: 3rem !important;
-    }
+    /* Main page spacing */
+[data-testid="stMainBlockContainer"] {
+    max-width: 1400px;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
 
     /* Blue title banner */
    /* Blue title banner */

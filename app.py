@@ -13,7 +13,7 @@ from report_generator import generate_comparison_report
 # --------------------------------------------------
 st.set_page_config(
     page_title="DocuCompare AI | Document Intelligence",
-    page_icon="ðŸ“‘",
+    page_icon="📑",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -647,7 +647,7 @@ st.markdown(
     }
 
 
-/* Change status text â€” colorful hover effects */
+/* Change status text — colorful hover effects */
 .change-up {
     color: #047857;
     font-weight: 750;
@@ -1142,7 +1142,7 @@ st.markdown(
 
 
 
-    /* PREMIUM MOTION LAYER â€” visual styling only */
+    /* PREMIUM MOTION LAYER — visual styling only */
     .hero {
         position: relative;
         isolation: isolate;
@@ -1797,7 +1797,7 @@ div.stButton > button:active,
 
 
 /* =========================================
-   IMPORTANT CHANGES â€” COLORFUL HOVER CARDS
+   IMPORTANT CHANGES — COLORFUL HOVER CARDS
 ========================================= */
 
 .change-glance-card {
@@ -1934,18 +1934,18 @@ with st.sidebar:
     st.markdown(
         """
         <div class="workspace-capability-panel">
-            <div class="workspace-capability-title">ðŸš€ What this workspace can do</div>
+            <div class="workspace-capability-title">🚀 What this workspace can do</div>
             <p class="workspace-capability-subtitle">Your quick guide to the document comparison tools.</p>
             <div class="workspace-capability-item">
-                <div class="workspace-capability-icon blue">ðŸ“</div>
+                <div class="workspace-capability-icon blue">📝</div>
                 <div><h4>Content Analysis</h4><p>Analyze the contents of both documents using AI.</p></div>
             </div>
             <div class="workspace-capability-item">
-                <div class="workspace-capability-icon purple">ðŸ”</div>
+                <div class="workspace-capability-icon purple">🔍</div>
                 <div><h4>Difference Detection</h4><p>Review similarities, differences, and key requirements.</p></div>
             </div>
             <div class="workspace-capability-item">
-                <div class="workspace-capability-icon green">ðŸ“¥</div>
+                <div class="workspace-capability-icon green">📥</div>
                 <div><h4>Downloadable Report</h4><p>Save your findings in a Word document.</p></div>
             </div>
         </div>
@@ -2051,12 +2051,12 @@ def parse_value_pairs(differences_text):
     # First support the exact natural-language format:
     # Effective Date (Changed): Document A is effective ...; Document B is effective ...
     label_pattern = r"(?:" + "|".join(re.escape(x) for x in sorted(known_labels, key=len, reverse=True)) + r")"
-    chunks = re.split(r"(?=(?:^|\n)\s*(?:[-*â€¢]\s*)?(?:\*\*)?" + label_pattern + r"(?:\s*\([^\n)]*\))?(?:\*\*)?\s*:)", text, flags=re.I)
+    chunks = re.split(r"(?=(?:^|\n)\s*(?:[-*•]\s*)?(?:\*\*)?" + label_pattern + r"(?:\s*\([^\n)]*\))?(?:\*\*)?\s*:)", text, flags=re.I)
     for chunk in chunks:
         chunk = chunk.strip()
         if not chunk:
             continue
-        m = re.match(r"(?:[-*â€¢]\s*)?(?:\*\*)?(.+?)(?:\*\*)?\s*(?:\(\s*(?:Changed|Unchanged|No change)\s*\))?\s*:\s*(.*)", chunk, flags=re.I|re.S)
+        m = re.match(r"(?:[-*•]\s*)?(?:\*\*)?(.+?)(?:\*\*)?\s*(?:\(\s*(?:Changed|Unchanged|No change)\s*\))?\s*:\s*(.*)", chunk, flags=re.I|re.S)
         if not m:
             continue
         label, body = m.group(1).strip(" *_`"), m.group(2).strip()
@@ -2081,7 +2081,7 @@ def parse_value_pairs(differences_text):
         if current_label and (value_a or value_b):
             add_row(current_label, value_a or "Not specified", value_b or "Not specified")
     for raw_line in text.splitlines():
-        line = raw_line.strip().lstrip("-â€¢ ").strip()
+        line = raw_line.strip().lstrip("-• ").strip()
         if not line:
             continue
         line = re.sub(r"\*\*(.*?)\*\*", r"\1", line).strip()
@@ -2167,7 +2167,7 @@ def professional_value(label, value):
     raw = re.sub(r"^(?:Document [AB]|Doc [AB])\s*(?:states|says|requires|allows|grants|provides|offers|has|:)?\s*", "", raw, flags=re.I)
     raw = re.sub(r"\b(?:whereas|while)\b.*$", "", raw, flags=re.I).strip(" ,.;:")
     if len(raw) > 100:
-        raw = raw[:97].rsplit(" ", 1)[0] + "â€¦"
+        raw = raw[:97].rsplit(" ", 1)[0] + "…"
     return raw[:1].upper() + raw[1:] if raw else "Not specified"
 
 
@@ -2208,7 +2208,7 @@ def make_bullets(text):
     items = []
     for line in text.splitlines():
         cleaned = line.strip()
-        cleaned = re.sub(r"^[-*â€¢]\s*", "", cleaned)
+        cleaned = re.sub(r"^[-*•]\s*", "", cleaned)
         cleaned = re.sub(r"^\d+[.)]\s*", "", cleaned)
         if cleaned:
             items.append(cleaned)
@@ -2247,12 +2247,12 @@ if "reset_count" not in st.session_state:
 st.markdown(
     """
     <div class="hero">
-        <span class="hero-tag">âœ¨ AI-POWERED DOCUMENT INTELLIGENCE</span>
+        <span class="hero-tag">✨ AI-POWERED DOCUMENT INTELLIGENCE</span>
         <h1>DocuCompare AI</h1>
         <p>
             Understand what changed between two documents.
             Discover similarities, identify important differences,
-            and generate a professional comparison report â€” all in one workspace.
+            and generate a professional comparison report — all in one workspace.
         </p>
     </div>
     """,
@@ -2268,7 +2268,7 @@ top_left, top_right = st.columns([5, 1])
 with top_left:
     st.markdown(
         """
-        <div class="section-heading">ðŸ“‚ Compare your documents</div>
+        <div class="section-heading">📂 Compare your documents</div>
         <div class="section-description">
             Upload two PDF files to begin your comparison.
         </div>
@@ -2279,7 +2279,7 @@ with top_left:
 with top_right:
     st.write("")
     st.write("")
-    if st.button("ðŸ”„ Reset", use_container_width=True):
+    if st.button("🔄 Reset", use_container_width=True):
         for key in [
             "comparison_result",
             "document_a_name",
@@ -2295,7 +2295,7 @@ with top_right:
 
 
 # --------------------------------------------------
-# PDF UPLOADS â€” redesigned section only
+# PDF UPLOADS — redesigned section only
 # --------------------------------------------------
 col_a, col_b = st.columns(2, gap="large")
 
@@ -2304,9 +2304,9 @@ with col_a:
         """
         <div class="pdf-upload-card pdf-upload-card-a">
             <div class="pdf-upload-topline">
-                <div class="pdf-upload-icon">ðŸ“˜</div>
+                <div class="pdf-upload-icon">📘</div>
                 <div>
-                    <div class="pdf-upload-eyebrow">STEP 01 Â· ORIGINAL</div>
+                    <div class="pdf-upload-eyebrow">STEP 01 · ORIGINAL</div>
                     <h3>Document A</h3>
                 </div>
             </div>
@@ -2328,9 +2328,9 @@ with col_b:
         """
         <div class="pdf-upload-card pdf-upload-card-b">
             <div class="pdf-upload-topline">
-                <div class="pdf-upload-icon">ðŸ“—</div>
+                <div class="pdf-upload-icon">📗</div>
                 <div>
-                    <div class="pdf-upload-eyebrow">STEP 02 Â· REVISED</div>
+                    <div class="pdf-upload-eyebrow">STEP 02 · REVISED</div>
                     <h3>Document B</h3>
                 </div>
             </div>
@@ -2348,7 +2348,7 @@ with col_b:
     )
 
 st.caption(
-    "ðŸ“Œ Supported format: PDF. Text-based PDFs generally work best. "
+    "📌 Supported format: PDF. Text-based PDFs generally work best. "
     "Scanned PDFs may require OCR."
 )
 
@@ -2358,7 +2358,7 @@ st.caption(
 # --------------------------------------------------
 st.write("")
 compare_clicked = st.button(
-    "âœ¨ Compare Documents with AI",
+    "✨ Compare Documents with AI",
     type="primary",
     use_container_width=True,
 )
@@ -2372,7 +2372,7 @@ if compare_clicked:
 
     else:
         try:
-            with st.spinner("ðŸ“– Extracting text from your PDFs..."):
+            with st.spinner("📖 Extracting text from your PDFs..."):
                 document_a = extract_text_from_pdf(pdf_a)
                 document_b = extract_text_from_pdf(pdf_b)
 
@@ -2390,7 +2390,7 @@ if compare_clicked:
                 )
                 st.stop()
 
-            with st.spinner("ðŸ§  Gemini is analyzing similarities and differences..."):
+            with st.spinner("🧠 Gemini is analyzing similarities and differences..."):
                 comparison_result = compare_documents(
                     document_a["text"],
                     document_b["text"],
@@ -2448,7 +2448,7 @@ if (
     st.markdown(
         """
         <div class="result-intro">
-            <h3>âœ¨ Your comparison dashboard is ready</h3>
+            <h3>✨ Your comparison dashboard is ready</h3>
             <p>
                 Start with the key changes, compare the documents side by side,
                 and open the detailed AI analysis only when you need more context.
@@ -2459,12 +2459,12 @@ if (
     )
 
     # Document overview
-    st.markdown("## ðŸ“Š Document overview")
+    st.markdown("## 📊 Document overview")
     overview_a, overview_b = st.columns(2, gap="large")
 
     with overview_a:
         with st.container(key="document_a_card"):
-            st.markdown("**ðŸ“˜ Document A**")
+            st.markdown("**📘 Document A**")
             st.write(st.session_state["document_a_name"])
             metric_a1, metric_a2 = st.columns(2)
             metric_a1.metric("Pages", st.session_state["document_a_details"]["pages"])
@@ -2475,7 +2475,7 @@ if (
 
     with overview_b:
         with st.container(key="document_b_card"):
-            st.markdown("**ðŸ“— Document B**")
+            st.markdown("**📗 Document B**")
             st.write(st.session_state["document_b_name"])
             metric_b1, metric_b2 = st.columns(2)
             metric_b1.metric("Pages", st.session_state["document_b_details"]["pages"])
@@ -2486,7 +2486,7 @@ if (
 
     # Side-by-side Document A and Document B summary cards.
     st.markdown("---")
-    st.markdown("## ðŸ“ Document Summaries")
+    st.markdown("## 📝 Document Summaries")
     st.caption("Each key point appears in its own card. Blue represents Document A; green represents Document B.")
 
     summary_col_a, summary_col_b = st.columns(2, gap="large")
@@ -2548,7 +2548,7 @@ if (
         # split it into individual sentences so each fact gets its own visual row.
         if len(items) == 1 and len(items[0]) > 180:
             paragraph = re.sub(r"\s+", " ", items[0]).strip()
-            sentence_items = re.split(r"(?<=[.!?])\s+(?=[A-ZðŸ“…â˜€ï¸ðŸ’šðŸ—“ï¸ðŸ‘¥âœ…ðŸ“ŒðŸ“‹â±ï¸])", paragraph)
+            sentence_items = re.split(r"(?<=[.!?])\s+(?=[A-Z📅☀️💚🗓️👥✅📌📋⏱️])", paragraph)
             sentence_items = [part.strip() for part in sentence_items if part.strip()]
             if len(sentence_items) > 1:
                 items = sentence_items
@@ -2556,7 +2556,7 @@ if (
         result = []
         for item in items:
             item = item.strip()
-            item = re.sub(r"^\s*(?:[-*â€¢]|\d+[.)])\s*", "", item)
+            item = re.sub(r"^\s*(?:[-*•]|\d+[.)])\s*", "", item)
             item = re.sub(r"\*{1,3}([^*]+?)\*{1,3}", r"\1", item)
             item = re.sub(r"_{1,2}([^_]+?)_{1,2}", r"\1", item)
             item = re.sub(r"(?is)<[^>]+>", "", item)
@@ -2577,25 +2577,25 @@ if (
         value = str(point).strip()
         lower = value.lower()
         rules = [
-            (("effective date", "effective from", "takes effect", "policy date", "start date", "date of issue", "issued on"), ("ðŸ“…", "Important date")),
-            (("annual leave", "vacation", "yearly leave"), ("â˜€ï¸", "Annual leave")),
-            (("sick leave", "medical leave", "illness"), ("ðŸ’š", "Sick leave")),
-            (("public holiday", "holiday"), ("ðŸ—“ï¸", "Public holidays")),
-            (("eligibility", "eligible", "service period", "probation"), ("ðŸ‘¥", "Eligibility")),
-            (("approval", "manager", "notice period", "advance notice"), ("âœ…", "Approval and notice")),
-            (("carry forward", "carry-forward", "unused leave"), ("ðŸ“Œ", "Carry-forward rules")),
-            (("requirement", "required", "must ", "mandatory", "condition", "conditions"), ("ðŸ“‹", "Requirements")),
-            (("certificate", "certifies", "completed", "completion"), ("ðŸ†", "Certification")),
-            (("duration", "period", "months", "years", "days"), ("â±ï¸", "Duration and limits")),
-            (("purpose", "focuses on", "subject", "covers", "overview"), ("ðŸ“˜", "Document overview")),
+            (("effective date", "effective from", "takes effect", "policy date", "start date", "date of issue", "issued on"), ("📅", "Important date")),
+            (("annual leave", "vacation", "yearly leave"), ("☀️", "Annual leave")),
+            (("sick leave", "medical leave", "illness"), ("💚", "Sick leave")),
+            (("public holiday", "holiday"), ("🗓️", "Public holidays")),
+            (("eligibility", "eligible", "service period", "probation"), ("👥", "Eligibility")),
+            (("approval", "manager", "notice period", "advance notice"), ("✅", "Approval and notice")),
+            (("carry forward", "carry-forward", "unused leave"), ("📌", "Carry-forward rules")),
+            (("requirement", "required", "must ", "mandatory", "condition", "conditions"), ("📋", "Requirements")),
+            (("certificate", "certifies", "completed", "completion"), ("🏆", "Certification")),
+            (("duration", "period", "months", "years", "days"), ("⏱️", "Duration and limits")),
+            (("purpose", "focuses on", "subject", "covers", "overview"), ("📘", "Document overview")),
         ]
         for keywords, result in rules:
             if any(keyword in lower for keyword in keywords):
                 return result
         match = re.match(r"^([^:]{3,48}):\s*(.+)$", value)
         if match:
-            return "ðŸ”Ž", match.group(1).strip().strip("*_")
-        return "ðŸ“", "Key point"
+            return "🔎", match.group(1).strip().strip("*_")
+        return "📝", "Key point"
 
     def render_summary_cards(title, filename, text, card_class):
         """Render clean, professional summary points with icons and dividers."""
@@ -2625,7 +2625,7 @@ if (
         else:
             points_html = (
                 '<div class="professional-summary-empty">'
-                '<span class="professional-summary-icon">ðŸ“</span>'
+                '<span class="professional-summary-icon">📝</span>'
                 '<span>A summary was not provided in the AI response.</span></div>'
             )
 
@@ -2641,7 +2641,7 @@ if (
 
     with summary_col_a:
         render_summary_cards(
-            "ðŸ“˜ Document A Â· Original",
+            "📘 Document A · Original",
             st.session_state["document_a_name"],
             summary_a,
             "summary-card-a",
@@ -2649,7 +2649,7 @@ if (
 
     with summary_col_b:
         render_summary_cards(
-            "ðŸ“— Document B Â· Updated",
+            "📗 Document B · Updated",
             st.session_state["document_b_name"],
             summary_b,
             "summary-card-b",
@@ -2657,7 +2657,7 @@ if (
 
     # Quick findings + detailed comparison cards. Only these two sections are redesigned.
     st.markdown("---")
-    st.markdown("## ðŸ”Ž Important Changes at a Glance")
+    st.markdown("## 🔎 Important Changes at a Glance")
     st.caption("A compact before-and-after overview of the key changes found in your documents.")
 
     rows = parse_value_pairs(differences)
@@ -2670,14 +2670,14 @@ if (
         c3.metric("Items unchanged", len(unchanged_rows))
 
         icon_map = {
-            "date": "ðŸ“…", "leave": "ðŸŒ¿", "eligibility": "ðŸ‘¥", "notice": "â±ï¸",
-            "approval": "â±ï¸", "carry": "ðŸ“„", "holiday": "ðŸŽ‰", "handover": "ðŸ“",
+            "date": "📅", "leave": "🌿", "eligibility": "👥", "notice": "⏱️",
+            "approval": "⏱️", "carry": "📄", "holiday": "🎉", "handover": "📝",
         }
         for row_start in range(0, len(rows), 3):
             cols = st.columns(3, gap="medium")
             for col, item in zip(cols, rows[row_start:row_start + 3]):
                 key = item["Item"].lower()
-                icon = next((v for k, v in icon_map.items() if k in key), "ðŸ”Ž")
+                icon = next((v for k, v in icon_map.items() if k in key), "🔎")
                 status = item.get("Change", "Changed")
                 status_color = "#059669" if status == "No change" else "#c026d3"
 
@@ -2717,7 +2717,7 @@ if (
                                     <div class="change-glance-value-a">{value_a}</div>
                                 </div>
 
-                                <span class="change-glance-arrow" style="align-self:center;">â†’</span>
+                                <span class="change-glance-arrow" style="align-self:center;">→</span>
 
                                 <div style="padding:11px 7px;border-radius:11px;background:linear-gradient(145deg,#ecfdf5,#d1fae5);text-align:center;min-width:0;">
                                     <div style="font-size:10px;color:#059669;font-weight:800;">DOCUMENT B</div>
@@ -2726,7 +2726,7 @@ if (
                             </div>
 
                             <div class="change-glance-explanation">
-                                â„¹ï¸ {explanation}
+                                ℹ️ {explanation}
                             </div>
                         </div>
                         """).strip(),
@@ -2735,7 +2735,7 @@ if (
     else:
         st.info("No structured A/B comparisons could be extracted from the difference section. The original AI analysis remains available below.")
 
-    st.markdown("## ðŸ“‹ Detailed Differences")
+    st.markdown("## 📋 Detailed Differences")
     st.markdown("<p style=\"font-size:18px;line-height:1.7;color:#475569;margin:0 0 18px 0;letter-spacing:normal;word-spacing:normal;\">Explore each difference in a colorful side-by-side view, with the explanation kept in its own full-width card.</p>", unsafe_allow_html=True)
     if rows:
         for index, item in enumerate(rows, start=1):
@@ -2743,7 +2743,7 @@ if (
             status_color = "#047857" if status == "No change" else "#a21caf"
             status_bg = "#d1fae5" if status == "No change" else "#fae8ff"
             key = item["Item"].lower()
-            icon = next((v for k, v in icon_map.items() if k in key), "ðŸ”Ž")
+            icon = next((v for k, v in icon_map.items() if k in key), "🔎")
             value_a = html.escape(str(professional_value(item["Item"], item["Document A"])))
             value_b = html.escape(str(professional_value(item["Item"], item["Document B"])))
             explanation = html.escape(str(change_explanation(item["Item"], item["Document A"], item["Document B"], status)))
@@ -2786,7 +2786,7 @@ if (
                         border:1px solid #c7d2fe;border-top:4px solid #6366f1;
                         overflow-wrap:anywhere;word-break:normal;white-space:normal;letter-spacing:normal;">
                             <div style="font-size:15px;line-height:1.5;color:#4338ca;font-weight:800;letter-spacing:.04em;">
-                                DOCUMENT A Â· BEFORE
+                                DOCUMENT A · BEFORE
                             </div>
                             <div style="font-size:21px;line-height:1.65;color:#1e3a8a;font-weight:750;margin-top:10px;
                             overflow-wrap:anywhere;word-break:normal;white-space:normal;">
@@ -2806,7 +2806,7 @@ if (
                         border:1px solid #a7f3d0;border-top:4px solid #10b981;
                         overflow-wrap:anywhere;word-break:normal;white-space:normal;letter-spacing:normal;">
                             <div style="font-size:15px;line-height:1.5;color:#047857;font-weight:800;letter-spacing:.04em;">
-                                DOCUMENT B Â· AFTER
+                                DOCUMENT B · AFTER
                             </div>
                             <div style="font-size:21px;line-height:1.65;color:#065f46;font-weight:750;margin-top:10px;
                             overflow-wrap:anywhere;word-break:normal;white-space:normal;">
@@ -2826,7 +2826,7 @@ if (
                     border:1px solid #fed7aa;border-left:4px solid #f97316;
                     overflow-wrap:anywhere;word-break:normal;white-space:normal;letter-spacing:normal;">
                         <div style="font-size:15px;line-height:1.5;color:#9a3412;font-weight:800;letter-spacing:.04em;">
-                            ðŸ’¡ WHAT CHANGED
+                            💡 WHAT CHANGED
                         </div>
                         <div style="font-size:19px;line-height:1.8;color:#334155;margin-top:9px;
                         overflow-wrap:anywhere;word-break:normal;white-space:normal;">
@@ -2841,23 +2841,23 @@ if (
         fallback_items = make_bullets(differences) or [line.strip() for line in differences.splitlines() if line.strip()]
         for index, item_text in enumerate(fallback_items, start=1):
             with st.container(border=True):
-                st.markdown(f"**ðŸ”Ž Difference {index}**")
+                st.markdown(f"**🔎 Difference {index}**")
                 st.write(item_text)
     else:
         st.info("No clearly labelled differences section was found in the AI response.")
 
     # Similarities
     st.markdown("---")
-    st.markdown("## ðŸ¤ What stayed the same")
+    st.markdown("## 🤝 What stayed the same")
     if similarities:
         with st.container(border=True):
             display_readable_bullets(similarities)
     else:
         st.info("No clearly labelled similarities section was found.")
 
-    # New / changed requirements â€” redesigned section only.
+    # New / changed requirements — redesigned section only.
     # Parse common natural-language requirement lines without changing other sections.
-    st.markdown("## ðŸ†• New or Changed Requirements")
+    st.markdown("## 🆕 New or Changed Requirements")
     st.caption("Key updates, additions and new requirements found in the uploaded documents.")
 
     def parse_requirement_cards(raw_text):
@@ -2869,7 +2869,7 @@ if (
         clean_text = clean_text.replace("\r", "")
         lines = []
         for raw_line in clean_text.splitlines():
-            line = re.sub(r"^\s*(?:[-*â€¢]+|\d+[.)])\s*", "", raw_line).strip()
+            line = re.sub(r"^\s*(?:[-*•]+|\d+[.)])\s*", "", raw_line).strip()
             line = re.sub(r"\*{1,3}|_{1,3}|`", "", line).strip()
             if line:
                 lines.append(line)
@@ -2880,7 +2880,7 @@ if (
             r"Carry Forward Limit|Carry Forward|Carry-Forward Limit|Handover Note|"
             r"Handover Note Requirement)\s*(?:\([^)]*\))?\s*:)"
         )
-        chunks = [part.strip(" \n;â€¢-") for part in starts.split(joined) if part.strip(" \n;â€¢-")]
+        chunks = [part.strip(" \n;•-") for part in starts.split(joined) if part.strip(" \n;•-")]
         items = []
         aliases = {
             "eligibility period": "Eligibility Period", "eligibility": "Eligibility Period",
@@ -2957,12 +2957,12 @@ if (
         st.markdown(
             f"<div style='display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 0 18px;'>"
             f"<span style='color:#475569;font-size:13px'>Detailed view of all new and updated policy requirements.</span>"
-            f"<span style='padding:7px 13px;border-radius:22px;background:#ede9fe;color:#6d28d9;font-weight:700;font-size:12px'>âœ¦ {len(requirement_items)} items found</span></div>",
+            f"<span style='padding:7px 13px;border-radius:22px;background:#ede9fe;color:#6d28d9;font-weight:700;font-size:12px'>✦ {len(requirement_items)} items found</span></div>",
             unsafe_allow_html=True,
         )
-        requirement_icons = {"eligibility period": "ðŸ‘¥", "advance notice": "ðŸ•’", "carry forward limit": "ðŸ—“ï¸", "handover note": "ðŸ“„"}
+        requirement_icons = {"eligibility period": "👥", "advance notice": "🕒", "carry forward limit": "🗓️", "handover note": "📄"}
         for item in requirement_items:
-            icon = requirement_icons.get(item["label"].casefold(), "ðŸ“Œ")
+            icon = requirement_icons.get(item["label"].casefold(), "📌")
             is_new = item["status"] == "New"
             badge_bg = "#d1fae5" if is_new else "#fae8ff"
             badge_color = "#047857" if is_new else "#a21caf"
@@ -2979,12 +2979,12 @@ if (
                     st.markdown(
                         f"<div style='display:grid;grid-template-columns:1fr auto 1fr;gap:9px;align-items:stretch;margin:8px 0;'>"
                         f"<div style='border:1px solid #bfdbfe;border-radius:12px;overflow:hidden;background:#f8fbff;text-align:center;'>"
-                        f"<div style='padding:9px 5px;background:#eaf3ff;color:#1d4ed8;font-size:12px;font-weight:800'>ðŸ“„ Document A (Original)</div>"
+                        f"<div style='padding:9px 5px;background:#eaf3ff;color:#1d4ed8;font-size:12px;font-weight:800'>📄 Document A (Original)</div>"
                         f"<div style='padding:15px 8px;color:#1e3a8a;font-size:16px;font-weight:800;min-height:67px;display:flex;align-items:center;justify-content:center'>{html.escape(item['a'])}</div>"
                         f"<div style='margin:0 9px 9px;padding:6px;border-radius:8px;background:#eaf3ff;color:#2563eb;font-size:11px;font-weight:700'>Original value</div></div>"
-                        f"<div style='display:flex;align-items:center;justify-content:center;color:#6d28d9;font-size:23px;font-weight:800'>âžœ</div>"
+                        f"<div style='display:flex;align-items:center;justify-content:center;color:#6d28d9;font-size:23px;font-weight:800'>➜</div>"
                         f"<div style='border:1px solid #a7f3d0;border-radius:12px;overflow:hidden;background:#f5fffb;text-align:center;'>"
-                        f"<div style='padding:9px 5px;background:#e3faf1;color:#047857;font-size:12px;font-weight:800'>ðŸ“„ Document B (Updated)</div>"
+                        f"<div style='padding:9px 5px;background:#e3faf1;color:#047857;font-size:12px;font-weight:800'>📄 Document B (Updated)</div>"
                         f"<div style='padding:15px 8px;color:#065f46;font-size:16px;font-weight:800;min-height:67px;display:flex;align-items:center;justify-content:center'>{html.escape(item['b'])}</div>"
                         f"<div style='margin:0 9px 9px;padding:6px;border-radius:8px;background:#e3faf1;color:#047857;font-size:11px;font-weight:700'>{'New requirement' if is_new else 'Updated value'}</div></div></div>",
                         unsafe_allow_html=True,
@@ -2992,9 +2992,9 @@ if (
                 with explanation_col:
                     st.markdown(
                         f"<div style='height:100%;padding:14px;border-radius:12px;background:linear-gradient(135deg,#f5f3ff,#f8fafc);'>"
-                        f"<div style='font-size:14px;font-weight:800;color:#4f46e5;margin-bottom:10px'>ðŸ’¡ Explanation</div>"
+                        f"<div style='font-size:14px;font-weight:800;color:#4f46e5;margin-bottom:10px'>💡 Explanation</div>"
                         f"<div style='font-size:13px;line-height:1.65;color:#334155'>{html.escape(item['explanation'])}</div>"
-                        f"<div style='display:inline-block;margin-top:12px;padding:5px 11px;border-radius:20px;background:{badge_bg};color:{badge_color};font-size:11px;font-weight:800'>âœ“ {item['status']}</div></div>",
+                        f"<div style='display:inline-block;margin-top:12px;padding:5px 11px;border-radius:20px;background:{badge_bg};color:{badge_color};font-size:11px;font-weight:800'>✓ {item['status']}</div></div>",
                         unsafe_allow_html=True,
                     )
     else:
@@ -3004,7 +3004,7 @@ if (
         )
 
     # Key facts and conclusion, placed in compact expanders.
-    with st.expander("ðŸ“… View key facts and important deadlines", expanded=False):
+    with st.expander("📅 View key facts and important deadlines", expanded=False):
         if key_facts:
             display_readable_bullets(key_facts)
         else:
@@ -3018,7 +3018,7 @@ if (
         else:
             conclusion_text = " ".join(
                 re.sub(
-                    r"^\s*(?:[-*â€¢]|\d+[.)])\s*",
+                    r"^\s*(?:[-*•]|\d+[.)])\s*",
                     "",
                     str(part),
                 ).strip()
@@ -3148,7 +3148,7 @@ if (
                 @media (prefers-reduced-motion: reduce) {{ .overall-conclusion-card {{ animation: none; }} }}
             </style>
             <div class="section-heading">
-                <span class="section-icon">ðŸ§ </span>
+                <span class="section-icon">🧠</span>
                 <div>
                     <h3>Overall Conclusion</h3>
                     <p>Summary of the comparison results</p>
@@ -3157,7 +3157,7 @@ if (
 
             <div class="overall-conclusion-card">
                 <div class="overall-conclusion-top">
-                    <div class="overall-conclusion-icon">ðŸ§ </div>
+                    <div class="overall-conclusion-icon">🧠</div>
                     <div>
                         <p class="overall-conclusion-kicker">AI comparison insight</p>
                         <h4 class="overall-conclusion-title">Overall Conclusion</h4>
@@ -3166,7 +3166,7 @@ if (
                 </div>
                 <div class="overall-conclusion-divider"></div>
                 <p class="overall-conclusion-text">{safe_conclusion}</p>
-                <div class="overall-conclusion-foot"><span>âœ“</span> Review the detailed comparison for individual changes</div>
+                <div class="overall-conclusion-foot"><span>✓</span> Review the detailed comparison for individual changes</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -3185,7 +3185,7 @@ if (
             st.markdown(
                 """
                 <div class="section-heading">
-                    <span class="section-icon">ðŸ“Œ</span>
+                    <span class="section-icon">📌</span>
                     <div>
                         <h3>Key Changes Identified</h3>
                         <p>Important differences between the two documents</p>
@@ -3249,7 +3249,7 @@ if (
             st.markdown(
                 """
                 <div class="summary-card">
-                    <h4>âœ… No major changes identified</h4>
+                    <h4>✅ No major changes identified</h4>
                     <p>The structured comparison did not identify
                     any changed items.</p>
                 </div>
@@ -3260,7 +3260,7 @@ if (
     # Keep the complete AI analysis expander below this section.
 
 
-    with st.expander("ðŸ” Need more details? Open complete AI analysis", expanded=False):
+    with st.expander("🔍 Need more details? Open complete AI analysis", expanded=False):
         st.caption(
             "This is the original AI response. It may contain more detail than the dashboard above."
         )
@@ -3268,7 +3268,7 @@ if (
 
     # Word report
     st.markdown("---")
-    st.markdown("## ðŸ“¥ Export your results")
+    st.markdown("## 📥 Export your results")
     st.caption("Download the complete AI analysis as a Word document.")
 
     try:
@@ -3279,7 +3279,7 @@ if (
         )
 
         st.download_button(
-            label="â¬‡ï¸ Download Word Comparison Report",
+            label="⬇️ Download Word Comparison Report",
             data=report_bytes,
             file_name="AI_Document_Comparison_Report.docx",
             mime=(
@@ -3306,7 +3306,7 @@ st.markdown(
     <div class="footer">
         Built with Python, Streamlit, Gemini AI and PyPDF
         <br>
-        DocuCompare AI Â· Document Intelligence Workspace
+        DocuCompare AI · Document Intelligence Workspace
     </div>
     """,
     unsafe_allow_html=True,

@@ -23,6 +23,7 @@ An AI-powered web application that compares two PDF documents, summarizes their 
 - 🔄 Reset the comparison and upload new documents.
 - ⚠️ Handle missing uploads and PDFs without readable text.
 - 🎨 Responsive interface with gradient styling and hover effects.
+
 ## 🖥 Screenshots
 
 ### 1. Homepage and Hero Banner
@@ -34,14 +35,14 @@ An AI-powered web application that compares two PDF documents, summarizes their 
 ### 3. Document Overview
 ![Document Overview](screenshots/document_overview.png)
 
-### 4. Document Summaries
-![Document Summaries](screenshots/document_summaries.png)
+### 4. Comparison Results
+![Comparison Results](screenshots/comparison_results.png)
 
 ### 5. AI Summaries and Key Findings
 ![AI Summaries and Key Findings](screenshots/ai_summaries_and_key_findings.png)
 
-### 6. Comparison Results
-![Comparison Results](screenshots/comparison_results.png)
+### 6. Document Summaries
+![Document Summaries](screenshots/document_summaries.png)
 
 ### 7. Key Changes and Findings
 ![Key Changes and Findings](screenshots/key_changes_and_findings.png)

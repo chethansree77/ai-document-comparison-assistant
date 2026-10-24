@@ -102,7 +102,7 @@ st.markdown(
         font-weight: 800;
     }
 
-
+    
 .hero {
     position: relative;
     overflow: hidden;
@@ -178,7 +178,7 @@ st.markdown(
         margin-bottom: 18px;
     }
 
-
+   
 
 .upload-card {
     position: relative;
@@ -219,7 +219,7 @@ st.markdown(
         line-height: 1.6;
     }
 
-
+   
 
 .feature-card {
     position: relative;
@@ -314,7 +314,7 @@ st.markdown(
     }
 
     /* Soft-colour summary cards; the rest of the original design is unchanged */
-
+    
 .summary-card {
     height: 100%;
     min-height: 350px;
@@ -347,7 +347,7 @@ st.markdown(
         box-shadow: 0 8px 22px rgba(15, 23, 42, .07);
     }
 
-
+    
 @keyframes summary-card-enter {
     from {
         opacity: 0;
@@ -398,7 +398,7 @@ st.markdown(
     transform-origin: left center;
     transition: color 0.3s ease, transform 0.3s ease;
 }
-
+    
 
     .summary-card-b .summary-title { color: #079b72; }
 
@@ -419,7 +419,7 @@ st.markdown(
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-
+    
 
     .summary-card .summary-divider {
         border: none;
@@ -646,7 +646,7 @@ st.markdown(
         line-height: 1.9;
     }
 
-
+    
 /* Change status text — colorful hover effects */
 .change-up {
     color: #047857;
@@ -826,7 +826,7 @@ st.markdown(
         font-size: 18px !important;
     }
 
-
+    
     /* Individual side-by-side difference cards */
     .difference-card-title {
         font-size: 23px;
@@ -898,7 +898,7 @@ st.markdown(
 
 
     /* Dedicated colourful UI for Key Changes Identified only */
-
+    
 .key-change-card {
     position: relative;
     overflow: hidden;
@@ -1278,7 +1278,7 @@ div.stButton > button:active,
         }
     }
 
-
+    
 /* ==========================================
    DOCUCOMPARE AI - PREMIUM UI ENHANCEMENTS
    Main content only; sidebar stays unchanged
@@ -2680,7 +2680,7 @@ if (
                 icon = next((v for k, v in icon_map.items() if k in key), "🔎")
                 status = item.get("Change", "Changed")
                 status_color = "#059669" if status == "No change" else "#c026d3"
-
+                
                 with col:
                     title = html.escape(str(item["Item"]))
                     value_a = html.escape(
@@ -2750,7 +2750,7 @@ if (
 
             # Keep each difference self-contained; scoped inline styles prevent long values
             # from overflowing their cards or inheriting letter spacing from other UI areas.
-
+           
             with st.container(border=True):
                 st.html(
                     textwrap.dedent(f"""
@@ -2777,7 +2777,7 @@ if (
 
                 before_col, after_col = st.columns(2, gap="medium")
                 with before_col:
-
+                    
                     st.html(
                         textwrap.dedent(f"""
                         <div style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;
@@ -2797,7 +2797,7 @@ if (
                     )
 
                 with after_col:
-
+                   
                     st.html(
                         textwrap.dedent(f"""
                         <div style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;
@@ -2817,7 +2817,7 @@ if (
                     )
 
 
-
+                
                 st.html(
                     textwrap.dedent(f"""
                     <div style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;
@@ -3010,7 +3010,7 @@ if (
         else:
             st.info("No clearly labelled key facts section was found.")
 
-
+    
     if conclusion:
         # Handle both string and list formats safely.
         if isinstance(conclusion, str):
@@ -3195,7 +3195,7 @@ if (
                 unsafe_allow_html=True,
             )
 
-
+            
             for item in changed_rows:
                 label = str(item.get("Item", "Difference")).strip()
 
@@ -3219,7 +3219,7 @@ if (
 
 
 
-
+                
                 st.markdown(
                     f"""
                     <div style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;

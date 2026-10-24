@@ -46,13 +46,41 @@ Return these exact section headings, using Markdown:
 ## 6. Important Dates and Facts
 ## 7. Overall Conclusion
 
-Use concise bullet points. For differences, clearly state the
-value or rule in Document A and the corresponding value or rule
-in Document B. Mark items as changed, new, removed, or unchanged
-where the documents support that conclusion.
+IMPORTANT FORMATTING RULES:
+- Write all sentences with normal spaces between words.
+- Never join separate words together.
+- Use normal English spelling, punctuation, and sentence spacing.
+- Do not remove spaces between words in any section.
+- Keep each section heading exactly as specified.
+- Use readable Markdown with proper line breaks.
+- Use concise bullet points where appropriate.
+
+COMPARISON RULES:
+- Compare the documents accurately and objectively.
+- For differences, clearly state the value or rule in Document A
+  and the corresponding value or rule in Document B.
+- Mark items as changed, new, removed, or unchanged where the
+  documents support that conclusion.
+- Do not invent facts, dates, requirements, or conclusions.
+- Distinguish between information explicitly stated in a document
+  and information that cannot be determined from the document.
+
+OVERALL CONCLUSION RULES:
+- In Section 7, write a clear overall conclusion in 2–4 complete
+  sentences.
+- Use normal spaces between every word.
+- Summarize the most important similarities and differences.
+- Explain the practical impact of the major changes when supported
+  by the documents.
+- Mention important restrictions or new requirements when relevant.
+- Do not repeat every comparison detail.
+- Do not put the entire conclusion into one unspaced word.
+- Ensure the conclusion is readable plain English.
+
+Return all seven sections in the specified order.
 """
 
-    # Start with one lightweight model to avoid sequential fallbacks.
+    # Use one lightweight model to avoid sequential fallbacks.
     model_name = "gemini-flash-lite-latest"
 
     try:
